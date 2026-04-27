@@ -1,5 +1,6 @@
 import NavBar from "@/components/NavBar";
 import Hero from "./pages/Hero";
+import About from "./pages/About";
 export default function Home() {
   return (
     <div
@@ -16,7 +17,12 @@ export default function Home() {
       <NavBar />
 
       <main className="relative pt-28 px-10 ">
-        <Hero/>  
+     
+          <Hero />
+      
+       
+          <About />
+       
       </main>
     </div>
   );

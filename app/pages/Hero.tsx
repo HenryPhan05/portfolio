@@ -9,12 +9,13 @@
 } from "motion/react";
 
 
+
   const Hero = () =>{
     
     return(
       <div
      
-      className=" flex flex-1 flex-col gap-7 px-30 py-5">
+      className="min-h-screen flex flex-1 flex-col gap-7 px-30 py-20">
           <motion.h3
            initial={{opacity: 0, y:-50}}
       animate={{opacity: 1, y:0}}

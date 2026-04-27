@@ -1,34 +1,77 @@
+"use client";
+
 import { navLinks } from "@/app/constants";
+import {
+  motion,
+  useScroll,
+  useMotionValueEvent,
+} from "motion/react";
+import { useState } from "react";
 
 const NavBar = () => {
+  const { scrollY } = useScroll();
+  const [hidden, setHidden] = useState(false);
+
+  // detect scroll direction
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const prev = scrollY.getPrevious() || 0;
+
+    if (latest > prev && latest > 100) {
+      setHidden(true); // scroll down
+    } else {
+      setHidden(false); // scroll up
+    }
+  });
+
   return (
-    <div
-      className="flex flex-row justify-between items-center
-                 px-16 py-6
-                 bg-black/80 backdrop-blur-md
-                 border-b border-white/10
-                 text-white fixed top-0 left-0 w-full z-50"
+    <motion.nav
+     
+      animate={{
+        y: hidden ? -100 : 0,
+        opacity: 1,
+      }}
+     
+      className="
+        fixed top-0 left-0 w-full z-50
+        bg-black/80 backdrop-blur-md
+        border-b border-white/10
+        text-white
+      "
     >
-      {/* Icon */}
-      <h1 className="text-2xl font-bold tracking-wide text-white">
-        Henry
-      </h1>
+      <div className="flex justify-between items-center px-16 py-6 relative">
+        {/* Logo */}
+        <h1 className="text-2xl font-bold tracking-wide">
+          Henry
+          
+        </h1>
 
-      {/* Navigation button*/}
-      <div className="flex flex-row gap-10">
-        {navLinks.map((item) => (
-          <div
-            key={item.id}
-            className="text-xl font-medium text-gray-300 hover:text-purple-400 hover:-translate-y-1 hover:scale-105 transition duration-200  cursor-pointer"
-          >
-            {item.name}
-          </div>
-        ))}
+        {/* Navigation */}
+        <div className="flex gap-10">
+          {navLinks.map((item, index) => (
+            <motion.a
+              key={item.id}
+              href={item.href}
+              initial={{opacity:0, y:-50}}
+              animate={{opacity:1, y:0}}
+              transition={{duration: 0.2, delay:index*0.3, ease:"backOut"}}
+              className="
+                text-sm font-medium text-gray-300
+                hover:text-purple-400
+                hover:-translate-y-1
+                hover:scale-105
+                transition-all duration-300
+                cursor-pointer
+              "
+            >
+              {item.name}
+            </motion.a>
+          ))}
+        </div>
+
+        {/* Glow line */}
+        <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-purple-500/40 to-transparent" />
       </div>
-
-      {/* subtle glow line */}
-      <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-cyan-500/30 to-transparent" />
-    </div>
+    </motion.nav>
   );
 };
 

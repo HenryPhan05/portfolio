@@ -126,7 +126,7 @@
       shadow-lg shadow-purple-900/30
       "
       >
-      Contact Me
+      DownLoad CV
       </motion.button>
       <motion.button
         initial={{ opacity: 0, y: -20 }}

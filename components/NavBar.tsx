@@ -1,5 +1,5 @@
 "use client";
-import { GiHamburgerMenu } from "react-icons/gi";
+
 import Hamburger from "./Hamburger";
 import { navLinks } from "@/app/constants";
 import {
@@ -8,8 +8,11 @@ import {
   useMotionValueEvent,
 } from "motion/react";
 import { useState } from "react";
-
-const NavBar = () => {
+type Props={
+  isOpen: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+const NavBar = ({isOpen, setOpen}: Props) => {
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
 
@@ -59,7 +62,7 @@ const NavBar = () => {
         transition={{duration:0.5, ease:"backOut"}}
         >
       
-           <Hamburger /> 
+           <Hamburger isHidden={hidden} isOpen={isOpen} setOpen={setOpen} /> 
         </motion.div>
         {/* Navigation desktop */}
         <div className=" gap-10 hidden lg:flex ">

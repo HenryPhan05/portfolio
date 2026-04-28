@@ -72,7 +72,7 @@
     I enjoy tackling complex problems and turning ideas into functional, impactful products.
   </motion.p>
   {/**social icons */}
-    <div className=" flex flex-row gap-3">
+    <div className=" flex flex-row lg:gap-3 gap-2">
       {socialLinks.map((item :SocialIcons ,index) =>{
         const Icon = item.icon;
         return(
@@ -90,7 +90,7 @@
   })}
     </div>
     {/**button */}
-    <div className="flex lg:flex-row gap-7">
+    <div className="flex lg:flex-row lg:gap-7 gap-3">
       <motion.button
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}

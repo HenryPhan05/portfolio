@@ -1,5 +1,5 @@
 "use client";
-
+import { GiHamburgerMenu } from "react-icons/gi";
 import { navLinks } from "@/app/constants";
 import {
   motion,
@@ -38,15 +38,27 @@ const NavBar = () => {
         text-white
       "
     >
-      <div className="flex justify-between items-center px-16 py-6 relative">
+      <div className="flex justify-between items-center 
+      px-8 py-3 
+      md:px-10 md:py-4
+      lg:px-16 lg:py-6
+      relative">
         {/* Logo */}
-        <h1 className="text-2xl font-bold tracking-wide">
+        <h1 className="text-sm lg:text-2xl font-bold tracking-wide">
           Henry
           
         </h1>
-
-        {/* Navigation */}
-        <div className="flex gap-10">
+        {/**hamburger menu */}
+        <motion.div
+        initial={{opacity:0, y:-50}}
+        animate={{opacity:1, y:0}}
+        transition={{duration:0.5, ease:"backOut"}}
+        >
+          <GiHamburgerMenu 
+          className="flex lg:hidden text-sm md:text-2xl"/>
+        </motion.div>
+        {/* Navigation desktop */}
+        <div className=" gap-10 hidden lg:flex ">
           {navLinks.map((item, index) => (
             <motion.a
               key={item.id}

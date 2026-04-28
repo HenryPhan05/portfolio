@@ -1,13 +1,13 @@
 import ProfileCard from "@/components/ProfileCard";
 import ProfessionalCard from "@/components/ProfessionalCard";
 import { ProfessionalCardLinks } from "../constants";
-import { ProfessionalCardProps } from "../constants/type";
+
 const About =() =>{
   return(
     <>
      <div
-      className="min-h-screen flex flex-col gap-7 
-     px-2 py-3
+      className="min-h-screen flex flex-col  gap-7 
+      px-2 py-3
       xl:px-30 xl:py-10
       lg:px-24 lg:py-8
       md:px-12 md:py-6
@@ -18,7 +18,8 @@ const About =() =>{
     </h1>
 
      <div
-     className="flex flex-col lg:grid lg:grid-cols-3 gap-8 lg:gap-3 lg:justify-around">
+     className="flex flex-col gap-8 items-center
+     lg:grid lg:grid-cols-3 lg:gap-3 ">
       <div>
       <ProfileCard/>
       </div>

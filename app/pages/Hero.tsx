@@ -84,13 +84,13 @@
           href={item.href}
           target="_blank"
           rel="noopener noreferrer">
-          <Icon className="cursor-pointer transition-all duration-300 hover:text-purple-500 hover:-translate-y-2 lg:text-3xl md:text-2xl sm:text-xl"/>
+          <Icon className="cursor-pointer transition-all duration-300 hover:text-purple-500 hover:-translate-y-2 text-xl lg:text-3xl md:text-2xl"/>
           </motion.a>
         )
   })}
     </div>
     {/**button */}
-    <div className="flex lg:flex-row flex-col gap-7">
+    <div className="flex lg:flex-row gap-7">
       <motion.button
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}

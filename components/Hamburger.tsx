@@ -1,4 +1,4 @@
-import { useRef, useState , useEffect} from "react";
+
 import { navLinks } from "@/app/constants";
 import { AnimatePresence, motion , useScroll,useMotionValueEvent,} from "motion/react";
 import {
@@ -42,7 +42,9 @@ const Hamburger=({isHidden, isOpen, setOpen} :HamburgerProps)=>{
         transition={{duration:0.2}}
         className="fixed left-0 shadow-4xl right-0 
         top-18
-        p-5 pt-0 bg-neutral-950 border-b border-b-white/20">
+        max-h-[42vh]
+        md:max-h-[45vh]
+        px-5 py-0 pt-0 bg-neutral-950 border-b border-b-white/20">
           <ul className="grid gap-5">
             {navLinks.map((item,index)=>{
               return(
@@ -67,7 +69,7 @@ const Hamburger=({isHidden, isOpen, setOpen} :HamburgerProps)=>{
                   },
                 }}
                 whileTap={{
-                  scale:0.98,
+                  scale:0.95,
                   transition:{
                     duration:0.2,
                     ease:'easeIn',

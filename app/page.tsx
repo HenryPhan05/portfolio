@@ -36,10 +36,7 @@ export default function Home() {
       md:pt-20 md:px-8
       sm:pt-12 sm:px-5 
        ">
-     
           <Hero />
-      
-       
           <About />
        
       </main>

@@ -7,9 +7,6 @@
   import {
   motion,
 } from "motion/react";
-
-
-
   const Hero = () =>{
     
     return(
@@ -46,7 +43,7 @@
           >
         <TypeAnimation
         sequence={[
-          'Software Development Student',
+          'Junior Software Developer',
           500,
           'Learning Something new',
           500,

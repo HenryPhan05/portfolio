@@ -10,3 +10,9 @@ export type SocialIcons={
   icon: IconType,
   href: string,
 }
+export type ProfessionalCardProps={
+  id: number,
+  name: string,
+  description: string,
+  icon: IconType,
+}

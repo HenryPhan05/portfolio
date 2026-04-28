@@ -5,7 +5,6 @@ import {
 } from "motion/react";
 import { Spin as HamburgerMenu } from 'hamburger-react'
 import Link from "next/link";
-import { delay } from "motion";
 type HamburgerProps = {
   isHidden: boolean;
   isOpen: boolean;
@@ -31,16 +30,6 @@ const Hamburger=({isHidden, isOpen, setOpen} :HamburgerProps)=>{
       <AnimatePresence>
       {isOpen &&(
         <>
-        {/**overlay */}
-        {/* <motion.div
-        initial={{opacity:0}}
-        animate={{opacity:1}}
-        exit={{opacity:0}}
-        onClick={() => setOpen(false)}
-        className="fixed inset-0 z-40
-        bg-black/50
-        backdrop-blur-sm"
-        /> */}
     {/**menu */}
         <motion.div
         initial={{opacity:0, y:-20}}
@@ -54,22 +43,23 @@ const Hamburger=({isHidden, isOpen, setOpen} :HamburgerProps)=>{
         className="fixed left-0 shadow-4xl right-0 
         top-18
         p-5 pt-0 bg-neutral-950 border-b border-b-white/20">
-          <ul className="grid gap-2">
+          <ul className="grid gap-5">
             {navLinks.map((item,index)=>{
               return(
                 <motion.li key={item.id}
                 initial={{opacity:0, y:index*20}}
-                animate={{opacity:isHidden? 0:1, y:isHidden?index*-20:0,
+                animate={{opacity:isHidden ? 0:1, y:isHidden ||isOpen?index*-20:0,
                   transition:{
-                    duration:0.4,
+                    duration:0.5,
                     delay: index*0.1,
+                    ease: "easeOut"
                   }
                 }}
                 exit={{opacity:0, y:20}}
                 transition={{duration:0.5, delay:index*0.1, ease:"backOut"}}
                 whileHover={{
                   scale: 1.02,
-                  y:-3,
+                
                   transition: {
                   type: "spring",
                   stiffness: 500,

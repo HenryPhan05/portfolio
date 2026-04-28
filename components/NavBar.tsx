@@ -33,7 +33,7 @@ const NavBar = ({isOpen, setOpen}: Props) => {
         y: hidden ? -100 : 0,
         opacity: 1,
         transition:{
-          duration:0.7,
+          duration:0.5,
           ease:"easeOut",
         }
       }}

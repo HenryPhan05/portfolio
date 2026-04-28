@@ -1,5 +1,6 @@
 "use client";
 import { GiHamburgerMenu } from "react-icons/gi";
+import Hamburger from "./Hamburger";
 import { navLinks } from "@/app/constants";
 import {
   motion,
@@ -25,10 +26,13 @@ const NavBar = () => {
 
   return (
     <motion.nav
-     
       animate={{
         y: hidden ? -100 : 0,
         opacity: 1,
+        transition:{
+          duration:0.7,
+          ease:"easeOut",
+        }
       }}
      
       className="
@@ -54,8 +58,8 @@ const NavBar = () => {
         animate={{opacity:1, y:0}}
         transition={{duration:0.5, ease:"backOut"}}
         >
-          <GiHamburgerMenu 
-          className="flex lg:hidden text-2xl md:text-3xl"/>
+      
+           <Hamburger /> 
         </motion.div>
         {/* Navigation desktop */}
         <div className=" gap-10 hidden lg:flex ">

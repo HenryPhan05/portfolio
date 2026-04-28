@@ -14,7 +14,6 @@
     
     return(
       <div
-     
       className="min-h-screen flex flex-1 flex-col justify-center gap-7 
       px-2 py-3
       xl:px-30 xl:py-20 
@@ -37,7 +36,7 @@
           animate={{opacity: 1, y:0}}
           transition={{delay:0.2,duration:0.3, ease:"backOut"}}         
           className="
-          text-xl lg:text-4xl md:text-2xl 
+          text-2xl lg:text-4xl 
            font-extrabold text-shadow-white">Phan Cao Thanh Vinh (Henry)
           </motion.h1>
           <motion.div
@@ -54,7 +53,7 @@
         ]}
         speed={30}
         repeat={Infinity}
-        className="text-sm lg:text-2xl md:text-xl sm:text-sm
+        className="text-2xl lg:text-2xl 
         font-medium text-purple-600"/>
         </motion.div>
 
@@ -63,7 +62,7 @@
         animate={{opacity:1, y:0}}
         transition={{delay:0.6, duration:0.3, ease:"backOut"}}
          className="text-white font-medium 
-         text-xs max-w-sm
+         text-sm max-w-sm
          lg:text-xl lg:max-w-5xl
          md:text-sm md:max-w-4xl
          sm:text-xs sm:max-w-3xl 
@@ -84,7 +83,8 @@
           href={item.href}
           target="_blank"
           rel="noopener noreferrer">
-          <Icon className="cursor-pointer transition-all duration-300 hover:text-purple-500 hover:-translate-y-2 text-xl lg:text-3xl md:text-2xl"/>
+          <Icon className="cursor-pointer transition-all duration-300 hover:text-purple-500 hover:-translate-y-2 
+           text-2xl lg:text-4xl md:text-3xl"/>
           </motion.a>
         )
   })}
@@ -115,10 +115,10 @@
         ease: "easeOut",
       }}
       className="
-        text-xs px-2 py-1
+        text-xl px-3 py-2
         lg:text-xl lg:px-5 lg:py-3
-        md:text-sm md:px-3 md:py-2
-        sm:text-xs sm:px-2 sm:py-1
+        
+        
         font-semibold
       bg-purple-800 
       rounded-full cursor-pointer
@@ -148,10 +148,9 @@
            }}
         className="
           group
-          text-xs px-2 py-1
+          text-xl px-3 py-2
           lg:text-xl lg:px-5 lg:py-0
-          md:text-sm md:px-3 md:py-2
-        sm:text-xs sm:px-2 sm:py-1
+       
           font-semibold
           border-2 border-purple-800 text-purple-800
          rounded-full

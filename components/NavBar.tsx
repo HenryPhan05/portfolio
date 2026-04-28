@@ -44,7 +44,7 @@ const NavBar = () => {
       lg:px-16 lg:py-6
       relative">
         {/* Logo */}
-        <h1 className="text-sm lg:text-2xl font-bold tracking-wide">
+        <h1 className="text-xl lg:text-2xl font-bold tracking-wide">
           Henry
           
         </h1>
@@ -55,7 +55,7 @@ const NavBar = () => {
         transition={{duration:0.5, ease:"backOut"}}
         >
           <GiHamburgerMenu 
-          className="flex lg:hidden text-sm md:text-2xl"/>
+          className="flex lg:hidden text-2xl md:text-3xl"/>
         </motion.div>
         {/* Navigation desktop */}
         <div className=" gap-10 hidden lg:flex ">

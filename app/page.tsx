@@ -17,7 +17,7 @@ export default function Home() {
       <NavBar />
 
       <main className="relative
-      pt-8 px-3 
+      pt-0 px-3 
       lg:pt-28 lg:px-10
       md:pt-20 md:px-8
       sm:pt-12 sm:px-5 

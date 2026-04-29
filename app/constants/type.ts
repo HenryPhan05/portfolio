@@ -1,3 +1,4 @@
+
 import { IconType } from "react-icons"
 export type Navigation={
   id:number,
@@ -15,4 +16,8 @@ export type ProfessionalCardProps={
   name: string,
   description: string,
   icon: IconType,
+}
+export type DescriptionProps={
+  id:number,
+  description: string,
 }

@@ -1,6 +1,7 @@
 import { Navigation } from "./type"
 import { SocialIcons } from "./type";
 import { ProfessionalCardProps } from "./type";
+import { DescriptionProps } from "./type";
   import { FaGithub } from "react-icons/fa";
   import { FaLinkedin } from "react-icons/fa";
   import { FaInstagram } from "react-icons/fa";
@@ -67,5 +68,19 @@ export const ProfessionalCardLinks : ProfessionalCardProps[]=[
     name:"Database Management",
     description: "Design and manage relational and NoSQL databases, including ERD design and CRUD development, to ensure data integrity, security, and performance. Work with MySQL as well as NoSQL solutions like Firebase and Supabase",
     icon: GoDatabase
+  }
+]
+export const Descriptions: DescriptionProps[] =[
+  {
+    id:1,
+    description: "I’m a junior software developer with a strong passion for building modern web and mobile applications. I enjoy turning ideas into real, interactive products and focus on creating smooth, user-friendly digital experiences."
+  },
+  {
+    id:2,
+    description:"My work involves both frontend and backend development, along with exploring cross-platform mobile solutions, testing, and basic security practices. I like working across the full development process from designing interfaces to implementing functionality and optimizing performance."
+  },
+  {
+    id:3,
+    description:"I’m a fast learner who enjoys solving problems, adapting to new technologies, and collaborating with others. With a continuous drive to improve, I aim to build reliable and impactful software that delivers real value to users."
   }
 ]

@@ -42,7 +42,7 @@ const Hamburger=({isHidden, isOpen, setOpen} :HamburgerProps)=>{
         transition={{duration:0.2}}
         className="fixed left-0 shadow-4xl right-0 
         top-18
-        max-h-[42vh]
+        max-h-[40vh]
         md:max-h-[45vh]
         px-5 py-0 pt-0 bg-neutral-950 border-b border-b-white/20">
           <ul className="grid gap-5">

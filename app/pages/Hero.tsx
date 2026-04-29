@@ -146,7 +146,7 @@
         className="
           group
           text-xl px-3 py-2
-          lg:text-xl lg:px-5 lg:py-0
+          lg:px-5 lg:py-0
        
           font-semibold
           border-2 border-purple-800 text-purple-800

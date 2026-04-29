@@ -4,7 +4,7 @@ const ProfessionalCard = ({ name, description, icon: Icon }: ProfessionalCardPro
   return (
     <div
       className="
-        flex flex-row gap-4 p-4 rounded-2xl cursor-pointer w-full
+        flex flex-row gap-4 p-4 rounded-2xl w-full
 
         bg-black/80
         backdrop-blur-xl

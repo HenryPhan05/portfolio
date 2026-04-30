@@ -4,6 +4,7 @@ import NavBar from "@/components/NavBar";
 import Hero from "./pages/Hero";
 import About from "./pages/About";
 import { AnimatePresence, motion } from "motion/react";
+import Projects from "./pages/Projects";
 export default function Home() {
   const[menuOpen, setMenuOpen] = useState(false)
   return (
@@ -38,7 +39,7 @@ export default function Home() {
        ">
           <Hero />
           <About />
-       
+          <Projects/>
       </main>
     </div>
   );

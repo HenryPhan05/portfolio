@@ -1,4 +1,5 @@
 
+import { StaticImageData } from "next/image"
 import { IconType } from "react-icons"
 export type Navigation={
   id:number,
@@ -20,4 +21,19 @@ export type ProfessionalCardProps={
 export type DescriptionProps={
   id:number,
   description: string,
+}
+type ProjectIcons= {
+  nameIcon:string,
+  icon:IconType
+}
+export type ProjectProps={
+  id: number,
+  name: string,
+  description: string,
+  tools: Array<string>,
+  githubLink: string | null,
+  demoLink: string | null,
+  anotherLink: string | null,
+  icons : ProjectIcons[] | ProjectIcons;
+  image: StaticImageData,
 }

@@ -2,12 +2,19 @@ import { Navigation } from "./type"
 import { SocialIcons } from "./type";
 import { ProfessionalCardProps } from "./type";
 import { DescriptionProps } from "./type";
+import { ProjectProps } from "./type";
   import { FaGithub } from "react-icons/fa";
   import { FaLinkedin } from "react-icons/fa";
   import { FaInstagram } from "react-icons/fa";
   import { HiComputerDesktop } from "react-icons/hi2";
   import { FaMobileAlt } from "react-icons/fa";
   import { GoDatabase } from "react-icons/go";
+  import { RiExternalLinkFill } from "react-icons/ri";
+  import { FaRegPlayCircle } from "react-icons/fa";
+  import { FaFigma } from "react-icons/fa";
+  import EvolvraImage from "@/public/projectImages/Evolvra.png"
+  import FitmonkeyImage from "@/public/projectImages/fitMonkey.png"
+  import KnowlyImage from "@/public/projectImages/Knowly.jpg"
 export const navLinks : Navigation[] =[
   {
     id:1,
@@ -82,5 +89,75 @@ export const Descriptions: DescriptionProps[] =[
   {
     id:3,
     description:"I’m a fast learner who enjoys solving problems, adapting to new technologies, and collaborating with others. With a continuous drive to improve, I aim to build reliable and impactful software that delivers real value to users."
+  }
+]
+export const ProjectLinks: ProjectProps[] =[
+  {
+    id:1,
+    name:"Fit Monkey",
+    description:"A modern fitness and workout tracking web application",
+    tools:[
+      "TypeScript",
+      "React",
+      "Tailwind",
+      "Next.js",
+      "Supabase",
+      "Firebase",
+    ],
+    githubLink:"https://github.com/HenryPhan05/fitMonkey",
+    demoLink: "https://fit-monkey.vercel.app/",
+    anotherLink:null,
+    icons:[
+      {
+        nameIcon:"View Github",
+        icon:FaGithub
+      },
+      {
+        nameIcon:"View Demo",
+        icon: RiExternalLinkFill
+      }
+    ], 
+    image: FitmonkeyImage
+  },
+  {
+    id:2,
+    name:"Knowly",
+    description: "A cross platform to help users manage their study tasks, track progress and build effective learning habits",
+    tools:[
+      "TypeScript",
+      "React Native",
+      "Expo",
+      "Supabase"
+    ],
+    githubLink:"https://github.com/HenryPhan05/Knowly",
+    demoLink:null,
+    anotherLink:null,
+    icons:[
+      {
+        nameIcon:"View Github",
+        icon:FaGithub
+      },
+      {
+        nameIcon: "Watch Demo",
+        icon: FaRegPlayCircle
+      }
+    ],
+    image: KnowlyImage
+  },
+  {
+    id:3,
+    name: "Evolvra",
+    description: "UI platform that allow users to track personal goals and tasks",
+    tools:[
+      "Figma"
+    ],
+    githubLink:null,
+    demoLink:null,
+    anotherLink:"https://www.figma.com/proto/Ev7x9SfZmiQRBwbLOmVVNP/P2-Starwberry-wireframe?node-id=540-1349&p=f&t=T6s9Z2lwRyVLuPyQ-1&scaling=scale-down&content-scaling=fixed&page-id=351%3A388&starting-point-node-id=849%3A2005",
+    icons:{
+      nameIcon: "Figma",
+      icon: FaFigma
+    },
+    image: EvolvraImage
   }
 ]

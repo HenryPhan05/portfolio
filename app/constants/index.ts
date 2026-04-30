@@ -14,7 +14,7 @@ import { ProjectProps } from "./type";
   import { FaFigma } from "react-icons/fa";
   import EvolvraImage from "@/public/projectImages/Evolvra.png"
   import FitmonkeyImage from "@/public/projectImages/fitMonkey.png"
-  import KnowlyImage from "@/public/projectImages/Knowly.jpg"
+  import KnowlyImage from "@/public/projectImages/Knowly.png"
 export const navLinks : Navigation[] =[
   {
     id:1,
@@ -104,17 +104,16 @@ export const ProjectLinks: ProjectProps[] =[
       "Supabase",
       "Firebase",
     ],
-    githubLink:"https://github.com/HenryPhan05/fitMonkey",
-    demoLink: "https://fit-monkey.vercel.app/",
-    anotherLink:null,
     icons:[
       {
-        nameIcon:"View Github",
-        icon:FaGithub
+        nameIcon:"Github",
+        icon:FaGithub,
+        link:"https://github.com/HenryPhan05/fitMonkey",
       },
       {
-        nameIcon:"View Demo",
-        icon: RiExternalLinkFill
+        nameIcon:"Demo",
+        icon: RiExternalLinkFill,
+        link : "https://fit-monkey.vercel.app/",
       }
     ], 
     image: FitmonkeyImage
@@ -129,17 +128,16 @@ export const ProjectLinks: ProjectProps[] =[
       "Expo",
       "Supabase"
     ],
-    githubLink:"https://github.com/HenryPhan05/Knowly",
-    demoLink:null,
-    anotherLink:null,
     icons:[
       {
-        nameIcon:"View Github",
-        icon:FaGithub
+        nameIcon:"Github",
+        icon:FaGithub,
+        link: "https://github.com/HenryPhan05/Knowly"
       },
       {
-        nameIcon: "Watch Demo",
-        icon: FaRegPlayCircle
+        nameIcon: "Demo",
+        icon: FaRegPlayCircle,
+        link : ""
       }
     ],
     image: KnowlyImage
@@ -149,14 +147,15 @@ export const ProjectLinks: ProjectProps[] =[
     name: "Evolvra",
     description: "UI platform that allow users to track personal goals and tasks",
     tools:[
-      "Figma"
+      "Figma",
+      "TeamWork",
+      "Design",
+      "Creative Thinking"
     ],
-    githubLink:null,
-    demoLink:null,
-    anotherLink:"https://www.figma.com/proto/Ev7x9SfZmiQRBwbLOmVVNP/P2-Starwberry-wireframe?node-id=540-1349&p=f&t=T6s9Z2lwRyVLuPyQ-1&scaling=scale-down&content-scaling=fixed&page-id=351%3A388&starting-point-node-id=849%3A2005",
     icons:{
-      nameIcon: "Figma",
-      icon: FaFigma
+      nameIcon: "Another",
+      icon: FaFigma,
+      link:"https://www.figma.com/proto/Ev7x9SfZmiQRBwbLOmVVNP/P2-Starwberry-wireframe?node-id=540-1349&p=f&t=T6s9Z2lwRyVLuPyQ-1&scaling=scale-down&content-scaling=fixed&page-id=351%3A388&starting-point-node-id=849%3A2005"
     },
     image: EvolvraImage
   }

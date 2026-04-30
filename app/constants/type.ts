@@ -24,16 +24,14 @@ export type DescriptionProps={
 }
 type ProjectIcons= {
   nameIcon:string,
-  icon:IconType
+  icon:IconType,
+  link: string,
 }
 export type ProjectProps={
   id: number,
   name: string,
   description: string,
   tools: Array<string>,
-  githubLink: string | null,
-  demoLink: string | null,
-  anotherLink: string | null,
   icons : ProjectIcons[] | ProjectIcons;
   image: StaticImageData,
 }

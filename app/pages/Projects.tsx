@@ -56,7 +56,7 @@ const Projects = () => {
   return (
     <div
       className="
-     lg:min-h-screen flex flex-col  gap-7 
+     min-h-screen flex flex-col  gap-7 
       px-2 py-3
       xl:px-30 xl:py-10
       lg:px-24 lg:py-8
@@ -174,7 +174,10 @@ const Projects = () => {
                 stiffness: 260,
                 damping: 24,
               }}
-              className="absolute left-1/2 -translate-x-1 z-20 lg:scale-100 md:scale-80 scale-60"
+              className="absolute 
+              left-1/2 -translate-x-1/3
+              lg:left-1/3 lg:-translate-1
+               z-20 lg:scale-100 md:scale-80 scale-60"
             >
               <ProjectCard {...ProjectLinks[projectIndex]} />
             </motion.div>

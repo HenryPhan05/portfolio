@@ -85,6 +85,7 @@ const Projects = () => {
         duration:0.5, 
         ease:"easeOut",
       }}
+      viewport={{once: true}}
         className="
         relative
         flex
@@ -93,7 +94,7 @@ const Projects = () => {
         w-full
       "
       >
-        {/* LEFT BUTTON */}
+        
         <motion.button
           whileHover={{
             x: [-2, 2, -2],
@@ -123,7 +124,7 @@ const Projects = () => {
           relative
           w-full
           max-w-6xl
-          h-130
+          h-150
           flex
           items-center
           justify-center
@@ -172,7 +173,7 @@ const Projects = () => {
                 stiffness: 260,
                 damping: 24,
               }}
-              className="absolute z-20 lg:scale-100 scale-80"
+              className="absolute z-20 lg:scale-100 md:scale-80 scale-60"
             >
               <ProjectCard {...ProjectLinks[projectIndex]} />
             </motion.div>

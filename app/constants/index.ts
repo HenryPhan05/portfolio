@@ -103,6 +103,8 @@ export const ProjectLinks: ProjectProps[] =[
       "Next.js",
       "Supabase",
       "Firebase",
+      "Open Food Facts API",
+      "ExerciseDB API"
     ],
     icons:[
       {
@@ -126,7 +128,8 @@ export const ProjectLinks: ProjectProps[] =[
       "TypeScript",
       "React Native",
       "Expo",
-      "Supabase"
+      "Supabase",
+      "Zod",
     ],
     icons:[
       {

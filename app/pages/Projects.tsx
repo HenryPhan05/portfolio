@@ -174,7 +174,7 @@ const Projects = () => {
                 stiffness: 260,
                 damping: 24,
               }}
-              className="absolute left-1/2 -translate-x-1/2 z-20 lg:scale-100 md:scale-80 scale-60"
+              className="absolute left-1/2 -translate-x-1 z-20 lg:scale-100 md:scale-80 scale-60"
             >
               <ProjectCard {...ProjectLinks[projectIndex]} />
             </motion.div>

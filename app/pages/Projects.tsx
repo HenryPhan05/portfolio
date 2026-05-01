@@ -108,11 +108,12 @@ const Projects = () => {
           }}
           onClick={() => paginate(-1)}
           className="
+            absolute
             left-0
             z-30
             text-3xl
             lg:text-4xl
-            mr-4 cursor-pointer hover:text-purple-600 active:text-purple-600
+            cursor-pointer hover:text-purple-600 active:text-purple-600
           "
         >
           <FaRegArrowAltCircleLeft />
@@ -146,7 +147,7 @@ const Projects = () => {
             className="
               hidden
               lg:block
-              absolute
+              lg:absolute
               left-1/2
               -translate-x-1/2
               pointer-events-none
@@ -173,7 +174,7 @@ const Projects = () => {
                 stiffness: 260,
                 damping: 24,
               }}
-              className="absolute z-20 lg:scale-100 md:scale-80 scale-60"
+              className="absolute left-1/2 -translate-x-1/2 z-20 lg:scale-100 md:scale-80 scale-60"
             >
               <ProjectCard {...ProjectLinks[projectIndex]} />
             </motion.div>

@@ -175,8 +175,8 @@ const Projects = () => {
                 damping: 24,
               }}
               className="absolute 
-              left-1/6 -translate-1
-              lg:left-1/3 
+              left-1/2 -translate-x-1/2
+              lg:left-1/3 lg:-translate-x-1
                z-20 lg:scale-100 md:scale-80 scale-70"
             >
               <ProjectCard {...ProjectLinks[projectIndex]} />

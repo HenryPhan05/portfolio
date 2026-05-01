@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ProjectProps } from "@/app/constants/type";
+import {motion} from "motion/react";
 const ProjectCard =(
   {
     image,
@@ -37,17 +38,18 @@ const ProjectCard =(
   }
   return(
     
-    <div
+    <motion.div
     className="
         w-100 flex flex-col gap-3 items-center text-center p-5
-        bg-black/80
+        bg-black/80 rounded-2xl
         backdrop-blur-xl
 
         border border-purple-600/40
         shadow-[0_0_20px_rgba(168,85,247,0.25)]
 
         hover:border-purple-400
-        hover:shadow-[0_0_30px_rgba(168,85,247,0.5)]"
+        hover:shadow-[0_0_30px_rgba(168,85,247,0.5)]
+        transition-all duration-250 ease-out"
     >
        <Image
        src={image}
@@ -98,7 +100,7 @@ const ProjectCard =(
     </div>
         
        </div>
-    </div>
+    </motion.div>
   )
 }
 export default ProjectCard;

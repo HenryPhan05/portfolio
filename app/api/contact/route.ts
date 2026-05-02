@@ -9,7 +9,7 @@ export async function POST(req: Request){
     const {name, email, message} = body;
     const data = await resend.emails.send({
       from: "Portfolio Contact <onboarding@resend.dev>",
-      to: "yourgmail@gmail.com",
+      to: "henry.phan2601@gmail.com",
       subject: `New message from ${name}`,
       replyTo: email,
 
@@ -19,7 +19,7 @@ export async function POST(req: Request){
           <p><strong>Name:</strong> ${name}</p>
           <p><strong>Email:</strong> ${email}</p>
 
-          <p><strong>Message:</strong></p]>
+          <p><strong>Message:</strong></p>
           <p>${message}</p>
         </div>
       `,

@@ -5,6 +5,8 @@ import {
 } from "motion/react";
 import { Spin as HamburgerMenu } from 'hamburger-react'
 import Link from "next/link";
+import { LenisContext } from "@/context/LenisContext";
+import { useContext } from "react";
 type HamburgerProps = {
   isHidden: boolean;
   isOpen: boolean;
@@ -13,6 +15,13 @@ type HamburgerProps = {
 
 const Hamburger=({isHidden, isOpen, setOpen} :HamburgerProps)=>{ 
   const {scrollY} = useScroll();
+  const {lenis} = useContext(LenisContext);
+  const scrollToSection = (id:string) =>{
+    lenis.current?.scrollTo(id,{
+      duration:1.2,
+      offset:-80,
+    })
+  }
     useMotionValueEvent(scrollY, "change", (latest) => {
     const prev = scrollY.getPrevious() || 0;
     
@@ -41,9 +50,9 @@ const Hamburger=({isHidden, isOpen, setOpen} :HamburgerProps)=>{
           exit={{opacity:0, y:-20}}
         transition={{duration:0.2}}
         className="fixed left-0 shadow-4xl right-0 
-        top-20
-        max-h-[40vh]
-        md:max-h-[45vh]
+        top-17
+        max-h-[45vh]
+      
         px-5 py-0 pt-0 bg-neutral-950 border-b border-b-white/20">
           <ul className="grid gap-8">
             {navLinks.map((item,index)=>{
@@ -61,7 +70,6 @@ const Hamburger=({isHidden, isOpen, setOpen} :HamburgerProps)=>{
                 transition={{duration:0.5, delay:index*0.1, ease:"backOut"}}
                 whileHover={{
                   scale: 1.02,
-                
                   transition: {
                   type: "spring",
                   stiffness: 500,
@@ -77,12 +85,17 @@ const Hamburger=({isHidden, isOpen, setOpen} :HamburgerProps)=>{
                 }}
                 className="w-full p-[0.08rem] rounded-xl 
                 bg-linear-to-tr from-neutral-80 
-                hover:bg-linear-to-tr hover:from-purple-900 via-neutral-950 to-neutral-700 hover:text-purple-700">
-                  <Link
-                  href={item.href}
+                hover:bg-linear-to-tr hover:from-purple-900 via-neutral-950 to-neutral-700 hover:text-purple-700
+                active:bg-linear-to-tr active:from-purple-900 active:text-purple-700">
+                  <motion.a
+                  onClick={(e) =>{
+                      e.preventDefault();
+                      scrollToSection(item.href)
+                      setOpen(false);
+                  }}
                   className="flex items-center justify-between w-full p-5 rounded-xl bg-neutral-950">
                       <span className="flex gap-1 text-lg">{item.name}</span>
-                  </Link>
+                  </motion.a>
                 </motion.li>
               )
             })}

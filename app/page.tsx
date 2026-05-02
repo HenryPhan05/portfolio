@@ -38,11 +38,18 @@ export default function Home() {
       md:pt-20 md:px-8
       sm:pt-12 sm:px-5 
        ">
-          <Hero />
+        <section id="hero">
+           <Hero />
+        </section>
+        <section id="about">
           <About />
-          <Projects/>
-          <Contact/>
-    
+        </section>
+        <section id="projects">
+          <Projects />
+        </section>
+        <section id="contact">
+          <Contact />
+        </section>
       </main>
     </div>
   );

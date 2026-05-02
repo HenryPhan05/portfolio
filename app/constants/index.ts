@@ -19,22 +19,22 @@ export const navLinks : Navigation[] =[
   {
     id:1,
     name: 'About',
-    href:'#About',
+    href:'#about',
   },
   {
     id:2,
     name: 'Projects',
-    href: '#Projects',
+    href: '#projects',
   },
   {
     id:3,
     name: 'Skills',
-    href: '#Skills',
+    href: '#skills',
   },
   {
     id:4,
     name: "Contact",
-    href: "#Contact",
+    href: "#contact",
   }
 ]
 export const socialLinks: SocialIcons[] =[

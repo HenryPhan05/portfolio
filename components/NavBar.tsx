@@ -1,21 +1,27 @@
 "use client";
-
 import Hamburger from "./Hamburger";
 import { navLinks } from "@/app/constants";
+import { LenisContext } from "@/context/LenisContext";
 import {
   motion,
   useScroll,
   useMotionValueEvent,
 } from "motion/react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 type Props={
   isOpen: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 const NavBar = ({isOpen, setOpen}: Props) => {
   const { scrollY } = useScroll();
+  const {lenis} = useContext(LenisContext);
   const [hidden, setHidden] = useState(false);
-
+  const scrollToSection = (id:string) =>{
+    lenis.current?.scrollTo(id,{
+      duration:1.2,
+      offset: -80,
+    })
+  }
   // detect scroll direction
   useMotionValueEvent(scrollY, "change", (latest) => {
     const prev = scrollY.getPrevious() || 0;
@@ -68,8 +74,11 @@ const NavBar = ({isOpen, setOpen}: Props) => {
         <div className=" gap-10 hidden lg:flex ">
           {navLinks.map((item, index) => (
             <motion.a
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection(item.href)
+              }}
               key={item.id}
-              href={item.href}
               initial={{opacity:0, y:-50}}
               animate={{opacity:1, y:0}}
               transition={{duration: 0.2, delay:index*0.3, ease:"backOut"}}

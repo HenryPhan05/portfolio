@@ -93,7 +93,6 @@
       animate={{ opacity: 1, y: 0 }}
       whileHover={{
         scale: 1.05,
-        rotate: 3,
         transition: {
           type: "spring",
           stiffness: 500,
@@ -123,7 +122,7 @@
       shadow-lg shadow-purple-900/30
       "
       >
-      DownLoad CV
+      Get In Touch
       </motion.button>
       <motion.button
         initial={{ opacity: 0, y: -20 }}
@@ -162,9 +161,8 @@
       opacity-0
       max-w-0
       -translate-x-2
-      group-hover:opacity-100
-      group-hover:max-w-5
-      group-hover:translate-x-0
+      group-hover:opacity-100 group-hover:max-w-5 group-hover:translate-x-0
+      group-active:opacity-100 group-active:max-w-5 group-active:translate-x-0
       transition-all duration-150
     "
   />

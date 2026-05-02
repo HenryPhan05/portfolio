@@ -5,6 +5,7 @@ import Hero from "./pages/Hero";
 import About from "./pages/About";
 import { AnimatePresence, motion } from "motion/react";
 import Projects from "./pages/Projects";
+import Contact from "./pages/Contact";
 export default function Home() {
   const[menuOpen, setMenuOpen] = useState(false)
   return (
@@ -40,6 +41,7 @@ export default function Home() {
           <Hero />
           <About />
           <Projects/>
+          <Contact/>
       </main>
     </div>
   );

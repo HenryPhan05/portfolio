@@ -56,15 +56,22 @@ const Projects = () => {
   return (
     <div
       className="
-     min-h-screen flex flex-col  gap-7 
+      min-h-screen flex flex-col  gap-7 
       px-2 py-3
       xl:px-30 xl:py-10
-      lg:px-24 lg:py-8
+      lg:px-24 lg:p-0
       md:px-12 md:py-6
       sm:px-12 sm:py-4
     "
     >
-      <h1
+      <motion.h1
+        initial ={{opacity:0, x:-20}}
+        whileInView={{opacity:1, x:0}}
+        transition={{
+          duration:0.5,
+          ease:"easeOut",
+        }}
+        viewport={{once:true}}
         className="
       text-2xl lg:text-4xl font-bold text-purple-300
     [text-shadow:
@@ -76,7 +83,7 @@ const Projects = () => {
       "
       >
         Projects______
-      </h1>
+      </motion.h1>
 
       <motion.div
       initial={{opacity:0, y:60}}

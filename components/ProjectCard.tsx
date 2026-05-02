@@ -27,8 +27,8 @@ const ProjectCard =(
             title={item.nameIcon}
           >
             <Icon className="cursor-pointer transition-all duration-300 hover:text-purple-500 hover:-translate-y-2 
-           text-xl
-          lg:text-2xl 
+          text-2xl
+          lg:text-3xl 
           "/>
           </a>
         );
@@ -95,7 +95,7 @@ const ProjectCard =(
           >{tools}</p>
       }
       </div>
-      <div className="flex flex-row justify-center mt-10 gap-5">
+      <div className="flex flex-row justify-center mt-10 gap-10">
         {iconsDisplay()}
     </div>
         

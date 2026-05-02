@@ -142,7 +142,7 @@ const Contact =() =>{
         setShowError(true);
       }
       setShowSuccess(true);
-      if(showSuccess) reset();
+      reset();
     }
     catch(error){
       
@@ -194,14 +194,14 @@ const Contact =() =>{
       onSubmit={handleSubmit(onSubmit)}
       className="max-w-2xl w-full mx-auto bg-black/10 opacity-80 backdrop-blur-xl border border-purple-500/20 rounded-3xl p-8 lg:p-10 shadow-[0_0_35px_rgba(168,85,247,0.18)]
       flex flex-col gap-10
-      lg:mt-10
+      mt-8 lg:mt-10 
       "
       >
         <div className="
           flex flex-row items-center gap-3
         ">
         <label htmlFor="name"
-        className=" w-30 text-xl font-semibold text-purple-300 [text-shadow:0_0_10px_rgba(168,85,247,0.8)]"
+        className="w-35 lg:w-30 lg:text-xl font-semibold text-purple-300 [text-shadow:0_0_10px_rgba(168,85,247,0.8)]"
         >Name:</label>
         <Controller
           control={control}
@@ -230,7 +230,7 @@ const Contact =() =>{
           className="flex flex-row items-center gap-3"
           >
         <label htmlFor="name"
-        className="lg: w-30 text-xl font-semibold text-purple-300 [text-shadow:0_0_10px_rgba(168,85,247,0.8)]"
+        className="w-35 lg:w-30 text-xl font-semibold text-purple-300 [text-shadow:0_0_10px_rgba(168,85,247,0.8)]"
         >Email:</label>
         <Controller
           control={control}
@@ -258,7 +258,7 @@ const Contact =() =>{
            className="flex flex-row gap-3"
           >
         <label htmlFor="message"
-        className="lg:w-30 text-xl font-semibold text-purple-300 [text-shadow:0_0_10px_rgba(168,85,247,0.8)]">Message:</label>
+        className="w-35 lg:w-30 text-xl font-semibold text-purple-300 [text-shadow:0_0_10px_rgba(168,85,247,0.8)]">Message:</label>
         <Controller
           control={control}
           name="message"

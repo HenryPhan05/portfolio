@@ -190,7 +190,14 @@ const Contact =() =>{
         Contact Me______
       </motion.h1>
       {/**form send message */}
-      <form
+      <motion.form
+      initial={{opacity:0, scale:0.8, y:50}}
+      whileInView={{opacity:1, scale:1, y:0}}
+      viewport={{once: true}}
+      transition={{
+        duration: 0.5,
+        ease:"easeOut",
+      }}
       onSubmit={handleSubmit(onSubmit)}
       className="max-w-2xl w-full mx-auto bg-black/10 opacity-80 backdrop-blur-xl border border-purple-500/20 rounded-3xl p-8 lg:p-10 shadow-[0_0_35px_rgba(168,85,247,0.18)]
       flex flex-col gap-10
@@ -304,7 +311,7 @@ const Contact =() =>{
         ">
         Send Message
       </motion.button>
-      </form>
+      </motion.form>
       {showSuccess &&(successfullySubmit())}
       {showError &&(errorSubmit())}
       </div>

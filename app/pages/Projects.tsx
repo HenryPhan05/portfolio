@@ -56,10 +56,10 @@ const Projects = () => {
   return (
     <div
       className="
-      min-h-screen flex flex-col  gap-7 
-      px-2 py-3
+      lg:min-h-screen flex flex-col  gap-0 lg:gap-7 
+      px-2 py-3 mt-20
       xl:px-30 xl:py-10
-      lg:px-24 lg:p-0
+      lg:px-24 lg:p-0 lg:mt-0
       md:px-12 md:py-6
       sm:px-12 sm:py-4
     "

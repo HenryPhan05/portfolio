@@ -41,11 +41,11 @@ const Hamburger=({isHidden, isOpen, setOpen} :HamburgerProps)=>{
           exit={{opacity:0, y:-20}}
         transition={{duration:0.2}}
         className="fixed left-0 shadow-4xl right-0 
-        top-18
+        top-20
         max-h-[40vh]
         md:max-h-[45vh]
         px-5 py-0 pt-0 bg-neutral-950 border-b border-b-white/20">
-          <ul className="grid gap-5">
+          <ul className="grid gap-8">
             {navLinks.map((item,index)=>{
               return(
                 <motion.li key={item.id}

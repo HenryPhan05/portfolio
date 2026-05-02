@@ -3,8 +3,7 @@ import { useState } from "react";
 import * as z from  "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
-import { Trykker } from "next/font/google";
-import { error } from "console";
+import { OrbitProgress } from "react-loading-indicators";
 const contactSchema = z.object({
   name: z
   .string()
@@ -12,15 +11,20 @@ const contactSchema = z.object({
   .max(100, "Name must be less than 100 character!"),
   email: z
   .string()
-  .email(),
+  .email("Incorrect email! Please try again!"),
   message : z.string()
 })
 type ContactForm = z.infer<typeof contactSchema>;
+
 const Contact =() =>{
+  const [isLoading, setLoading] = useState<boolean>(false);
+  const [showSuccess, setShowSuccess] = useState<boolean>(false);
+  const [showError, setShowError] = useState<boolean>(false);
   const {
     control,
     handleSubmit,
     formState: {errors},
+    reset
   } = useForm<ContactForm>({
     resolver: zodResolver(contactSchema),
     defaultValues:{
@@ -31,8 +35,102 @@ const Contact =() =>{
     mode: "onSubmit",
     shouldFocusError: true,
   })
+  const successfullySubmit = () =>{
+    return(
+     <div
+    className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 "
+    >
+    <motion.div
+      initial={{
+        opacity: 0,
+        scale: 0.8,
+        y: 30,
+      }}
+      animate={{
+        opacity: 1,
+        scale: 1,
+        y: 0,
+      }}
+      exit={{
+        opacity: 0,
+      }}
+      className="relative w-[90%] max-w-md rounded-3xl bg-black/70 backdrop-blur-xl border border-purple-500/20 p-8 shadow-[0_0_40px_rgba(168,85,247,0.3)]"
+      >
+      <button
+        onClick={() => {
+          setShowSuccess(false)
+        }}
+        className="absolute top-2 right-4 text-red-400 text-xl cursor-pointer"
+        >
+          ✕
+      </button>
+      <div className="flex flex-col items-center gap-3 ">
+        <h2
+          className="
+          text-2xl
+          font-bold
+        text-green-400
+      "
+      >
+        Message Sent
+      </h2>
+
+      <p className="mt-4 text-gray-300">
+        Thank you for contacting me! 
+      </p>
+      </div>
+    </motion.div>
+  </div>
+    )
+  }
+  const errorSubmit=() =>{
+    return(
+      <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">
+        <motion.div
+        initial={{
+          opacity:0,
+          scale:0.8,
+          y:30,
+        }}
+        animate={{
+          opacity:1,
+          scale:1,
+          y:0
+        }}
+        exit={{
+          opacity:0,
+        }}
+        className="relative w-[90%] max-w-md rounded-3xl bg-black/70 backdrop-blur-xl border border-purple-500/20 p-8 shadow-[0_0_40px_rgba(168,85,247,0.3)]"
+        >
+           <button
+        onClick={() => {
+          setShowError(false)
+        }}
+        className="absolute top-2 right-4 text-red-400 text-xl cursor-pointer"
+        >
+          ✕
+      </button>
+          <div className="flex flex-col items-center gap-3 ">
+            <h2
+              className="
+                text-2xl
+                  font-bold
+              text-red-400
+              "
+            >
+            Message Error!
+            </h2>
+          <p className="mt-4 text-gray-300">
+            Please try again! Thank you😭 
+          </p>
+        </div>
+        </motion.div>    
+      </div>
+    )
+  }
   const onSubmit = async(data: ContactForm) =>{
     try{
+      setLoading(true);
       const res = await fetch("/api/contact",{
         method: "POST",
         headers:{
@@ -41,13 +139,24 @@ const Contact =() =>{
         body: JSON.stringify(data),
       });
       if(!res.ok){
-        throw new Error("Failed to send");
+        setShowError(true);
       }
-      alert("Message sent!");
+      setShowSuccess(true);
+      if(showSuccess) reset();
     }
     catch(error){
-      alert("failed to send message");
+      
     }
+    finally{
+      setLoading(false);
+    }
+  }
+  if(isLoading){
+    return(
+      <div className="min-h-screen flex flex-col justify-center items-center">
+        <OrbitProgress color="#8d34a5" size="medium"/>
+      </div>
+    )
   }
   return(
      <div
@@ -175,13 +284,29 @@ const Contact =() =>{
         {errors.message.message}
       </p>
       )}
-      <button type="submit"
+      <motion.button type="submit"
+        whileHover={{
+          scale: 1.05,
+          transition:{
+            duration:0.3,
+            ease:"easeOut",
+          }
+        }}  
+        whileTap={{
+          scale:0.95,
+          transition:{
+            duration:0.3,
+            ease:"easeOut"
+          }
+        }}
         className=" cursor-pointer mt-2 rounded-xl  bg-purple-600/100 py-3 font-semibold text-white
         shadow-[0_0_35px_rgba(168,85,247,0.35)]
         ">
         Send Message
-      </button>
+      </motion.button>
       </form>
+      {showSuccess &&(successfullySubmit())}
+      {showError &&(errorSubmit())}
       </div>
   ) 
 }

@@ -42,6 +42,7 @@ export default function Home() {
           <About />
           <Projects/>
           <Contact/>
+    
       </main>
     </div>
   );

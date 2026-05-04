@@ -34,3 +34,24 @@ It also includes a fully functional contact form for direct communication.
 - Scroll-to-top button with animation  
 
 ---
+
+## 📦 libraries & Tools
+
+- motion (Framer Motion)
+- lenis
+- react-hook-form
+- zod
+- resend
+- react-icons
+
+---
+
+## 🚀 Live Demo
+<a href="https://portfolio-flax-two-3ter20efwn.vercel.app/">My portfolio</a>
+
+---
+
+
+
+
+

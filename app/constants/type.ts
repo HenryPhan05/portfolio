@@ -35,3 +35,7 @@ export type ProjectProps={
   icons : ProjectIcons[] | ProjectIcons;
   image: StaticImageData,
 }
+export type IConProps ={
+  className?:string ,
+
+}

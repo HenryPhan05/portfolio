@@ -160,6 +160,7 @@ const Contact =() =>{
   }
   return(
      <div
+     id="contact"
       className="min-h-screen pt-10 lg:pt-0 flex flex-1 flex-col  gap-7 
       px-2 py-3
       xl:px-30 xl:py-20 

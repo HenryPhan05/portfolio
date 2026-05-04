@@ -6,6 +6,7 @@ import About from "./pages/About";
 import { AnimatePresence, motion } from "motion/react";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
+import Skills from "./pages/Skills";
 export default function Home() {
   const[menuOpen, setMenuOpen] = useState(false)
   return (
@@ -38,18 +39,12 @@ export default function Home() {
       md:pt-20 md:px-8
       sm:pt-12 sm:px-5 
        ">
-        <section id="hero">
            <Hero />
-        </section>
-        <section id="about">
           <About />
-        </section>
-        <section id="projects">
           <Projects />
-        </section>
-        <section id="contact">
+          <Skills/>
           <Contact />
-        </section>
+  
       </main>
     </div>
   );

@@ -8,6 +8,7 @@ const About =() =>{
   return(
     <>
      <div
+     id="about"
       className="min-h-screen flex flex-col  gap-7 
       px-2 py-3
       xl:px-30 xl:py-10

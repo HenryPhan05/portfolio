@@ -55,6 +55,7 @@ const Projects = () => {
 
   return (
     <div
+    id="projects"
       className="
       lg:min-h-screen flex flex-col  gap-0 lg:gap-7 
       px-2 py-3 mt-20

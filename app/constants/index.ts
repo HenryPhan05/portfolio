@@ -4,6 +4,7 @@ import { ProfessionalCardProps } from "./type";
 import { DescriptionProps } from "./type";
 import { ProjectProps } from "./type";
   import { FaGithub } from "react-icons/fa";
+  import { FiGithub } from "react-icons/fi";
   import { FaLinkedin } from "react-icons/fa";
   import { FaInstagram } from "react-icons/fa";
   import { HiComputerDesktop } from "react-icons/hi2";
@@ -15,6 +16,7 @@ import { ProjectProps } from "./type";
   import EvolvraImage from "@/public/projectImages/Evolvra.png"
   import FitmonkeyImage from "@/public/projectImages/fitMonkey.png"
   import KnowlyImage from "@/public/projectImages/Knowly.png"
+  import PortfolioImage from "@/public/projectImages/portfolio.png"
 export const navLinks : Navigation[] =[
   {
     id:1,
@@ -109,14 +111,19 @@ export const ProjectLinks: ProjectProps[] =[
     icons:[
       {
         nameIcon:"Github",
-        icon:FaGithub,
+        icon:FiGithub,
         link:"https://github.com/HenryPhan05/fitMonkey",
       },
       {
         nameIcon:"Demo",
         icon: RiExternalLinkFill,
         link : "https://fit-monkey.vercel.app/",
-      }
+      },
+      {
+        nameIcon:"Figma",
+        icon:FaFigma,
+        link: "https://www.figma.com/proto/JHMCE4nlc4CJBCHBUgzpsH/fitMonkey-Figma?node-id=3002-175&t=mrsoovifJG8GfVLR-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=3002%3A175"
+      },
     ], 
     image: FitmonkeyImage
   },
@@ -134,13 +141,18 @@ export const ProjectLinks: ProjectProps[] =[
     icons:[
       {
         nameIcon:"Github",
-        icon:FaGithub,
+        icon:FiGithub,
         link: "https://github.com/HenryPhan05/Knowly"
       },
       {
         nameIcon: "Demo",
         icon: FaRegPlayCircle,
-        link : ""
+        link : "https://www.youtube.com/watch?v=A8zKp43XvWs"
+      },
+      {
+        nameIcon: "Figma",
+        icon:FaFigma,
+        link : "https://www.figma.com/design/ejeGypk1WQ7TNrr4zDnkNS/Knowly?node-id=0-1&t=p8gjsNVUrIpcX5bL-0"
       }
     ],
     image: KnowlyImage
@@ -161,5 +173,30 @@ export const ProjectLinks: ProjectProps[] =[
       link:"https://www.figma.com/proto/Ev7x9SfZmiQRBwbLOmVVNP/P2-Starwberry-wireframe?node-id=540-1349&p=f&t=T6s9Z2lwRyVLuPyQ-1&scaling=scale-down&content-scaling=fixed&page-id=351%3A388&starting-point-node-id=849%3A2005"
     },
     image: EvolvraImage
+  },
+  {
+    id:4,
+    name:"Portfolio",
+    description: "My Interactive Porfolio Design that showed my projects, skills",
+    tools:[
+      "TypeScript",
+      "Tailwind",
+      "React",
+      "Reponsive Design",
+      "Motion",
+    ],
+    icons:[
+      {
+        nameIcon: "Github",
+        icon: FiGithub,
+        link:"https://github.com/HenryPhan05/portfolio"
+      },
+      {
+        nameIcon: "Demo",
+        icon: RiExternalLinkFill,
+        link: "https://portfolio-flax-two-3ter20efwn.vercel.app/"
+      }
+    ],
+    image: PortfolioImage
   }
 ]

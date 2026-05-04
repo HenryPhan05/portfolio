@@ -4,7 +4,7 @@ import { AnimatePresence, motion , useScroll,useMotionValueEvent,} from "motion/
 import {
 } from "motion/react";
 import { Spin as HamburgerMenu } from 'hamburger-react'
-import Link from "next/link";
+
 import { LenisContext } from "@/context/LenisContext";
 import { useContext } from "react";
 type HamburgerProps = {

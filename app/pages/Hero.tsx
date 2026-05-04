@@ -7,8 +7,16 @@
   import {
   motion,
 } from "motion/react";
+import { LenisContext } from "@/context/LenisContext";
+import { useContext } from "react";
   const Hero = () =>{
-    
+    const {lenis} = useContext(LenisContext);
+    const scrollToSection = (id:string) =>{
+    lenis.current?.scrollTo(id,{
+      duration:1.2,
+      offset: -80,
+    })
+  }
     return(
       <motion.div
       id="hero"
@@ -111,6 +119,10 @@
         duration: 0.3,
         ease: "easeOut",
       }}
+      onClick={(e) =>{
+        e.preventDefault();
+        scrollToSection("#contact")
+      }}
       className="
         text-xl px-3 py-2
         lg:text-xl lg:px-5 lg:py-3
@@ -143,6 +155,10 @@
             duration: 0.08
           }
            }}
+        onClick={(e) =>{
+          e.preventDefault()
+          scrollToSection("#projects")
+        }}
         className="
           group
           text-xl px-3 py-2

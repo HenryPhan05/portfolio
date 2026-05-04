@@ -16,6 +16,7 @@ const NavBar = ({isOpen, setOpen}: Props) => {
   const { scrollY } = useScroll();
   const {lenis} = useContext(LenisContext);
   const [hidden, setHidden] = useState(false);
+  
   const scrollToSection = (id:string) =>{
     lenis.current?.scrollTo(id,{
       duration:1.2,

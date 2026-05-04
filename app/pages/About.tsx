@@ -4,7 +4,23 @@ import { Descriptions, ProfessionalCardLinks } from "../constants";
   import {
   motion,
 } from "motion/react";
+import { LenisContext } from "@/context/LenisContext";
+import { useContext } from "react";
+
 const About =() =>{
+  const {lenis} = useContext(LenisContext);
+  const scrollToSection = (id:string) =>{
+    lenis.current?.scrollTo(id,{
+      duration:1.2,
+      offset:-80
+    })
+  }
+  const handleDownload =() =>{
+    const link = document.createElement('a');
+    link.href="documents/Resume.pdf";
+    link.download = "HenryPhan.pdf";
+    link.click();
+  }
   return(
     <>
      <div
@@ -77,6 +93,10 @@ const About =() =>{
               ease:"backOut",
             }
           }}
+          onClick={(e) =>{
+            e.preventDefault();
+            scrollToSection("#contact")
+          }}
           className="
           cursor-pointer
           text-xl
@@ -111,6 +131,10 @@ const About =() =>{
               duration:0.2,
               ease:"backOut",
             }
+          }}
+          onClick={(e) =>{
+            e.preventDefault();
+            handleDownload();
           }}
           className="cursor-pointer
            text-xl

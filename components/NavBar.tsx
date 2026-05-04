@@ -16,7 +16,7 @@ const NavBar = ({isOpen, setOpen}: Props) => {
   const { scrollY } = useScroll();
   const {lenis} = useContext(LenisContext);
   const [hidden, setHidden] = useState(false);
-  
+
   const scrollToSection = (id:string) =>{
     lenis.current?.scrollTo(id,{
       duration:1.2,
@@ -58,7 +58,12 @@ const NavBar = ({isOpen, setOpen}: Props) => {
       lg:px-16 lg:py-6
       relative">
         {/* Logo */}
-        <h1 className="text-xl lg:text-2xl font-bold tracking-wide">
+        <h1
+        onClick={(e) =>{
+          e.preventDefault();
+          scrollToSection("#hero")
+        }} 
+        className=" cursor-pointer text-xl lg:text-2xl font-bold tracking-wide">
           Henry
           
         </h1>

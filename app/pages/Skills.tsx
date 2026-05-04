@@ -105,8 +105,17 @@
         ease:"easeOut"
       }}
       viewport={{once:true}}
-     
-            className="mt-10 px-10 py-15 rounded-2xl border border-purple-500/30  grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 bg-linear-to-br from-purple-600/10 to-purple-600/20
+
+            className="mt-15
+            px-4 py-8 
+            md:px-8 md:py-10
+            lg:px-10 lg:py-15
+            rounded-2xl border border-purple-500/30  
+            grid grid-cols-3 
+            sm:grid-cols-4 
+            md:grid-cols-5
+            lg:grid-cols-6 
+            bg-linear-to-br from-purple-600/10 to-purple-600/20
             gap-x-10 gap-y-15
             place-items-center
         "

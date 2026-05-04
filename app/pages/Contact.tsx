@@ -307,7 +307,7 @@ const Contact =() =>{
             ease:"easeOut"
           }
         }}
-        className=" cursor-pointer mt-2 rounded-xl  bg-purple-600/100 py-3 font-semibold text-white
+        className=" cursor-pointer mt-2 rounded-xl  bg-purple-600 py-3 font-semibold text-white
         shadow-[0_0_35px_rgba(168,85,247,0.35)]
         ">
         Send Message

@@ -66,7 +66,7 @@
     const animations = [slideX, slideY,zoom, rotate];
 
     return(
-      <div
+      <motion.div
         id="skills"
         className="
         lg:min-h-screen flex flex-col  gap-0 lg:gap-7 
@@ -97,7 +97,15 @@
         >
           Skills______
         </motion.h1>
-        <div
+        <motion.div
+         initial={{opacity:0, y:30}}
+      whileInView={{opacity:1, y:0}}
+      transition={{
+        duration:0.5,
+        ease:"easeOut"
+      }}
+      viewport={{once:true}}
+     
             className="mt-10 px-10 py-15 rounded-2xl border border-purple-500/30  grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 bg-linear-to-br from-purple-600/10 to-purple-600/20
             gap-x-10 gap-y-15
             place-items-center
@@ -106,13 +114,15 @@
         {icons.map((Icon, index) => {
           const animationIcon = animations[index % animations.length];
         return (
-          <motion.div key={index} {...animationIcon}>
+          <motion.div 
+          key={index} 
+           {...animationIcon}>
             <Icon className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
           </motion.div>
         );
       })}
-      </div>
-        </div>
+      </motion.div>
+        </motion.div>
     )
   }
 

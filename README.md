@@ -15,7 +15,7 @@ It also includes a fully functional contact form for direct communication.
 ## 🛠️ Tech Stack
 
 - **Framework:** Next.js, React  
-- **Styling:** TailwindCSS 4  
+- **Styling:** TailwindCSS 
 - **Animations:** Motion (Framer Motion)  
 - **Smooth Scroll:** Lenis  
 - **Forms:** React Hook Form + Zod  

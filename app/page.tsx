@@ -16,7 +16,7 @@ export default function Home() {
   useEffect(() => {
   const id = setTimeout(() => {
     lenis.current?.scrollTo(0, { immediate: true });
-  }, 0);
+  }, 100);
 
   return () => clearTimeout(id);
 }, []);

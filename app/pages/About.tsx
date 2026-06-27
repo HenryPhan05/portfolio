@@ -17,8 +17,8 @@ const About =() =>{
   }
   const handleDownload =() =>{
     const link = document.createElement('a');
-    link.href="documents/Resume.pdf";
-    link.download = "HenryPhan.pdf";
+    link.href="documents/HenryPhan_Resume.pdf";
+    link.download = "HenryPhan_Resume.pdf";
     link.click();
   }
   return(

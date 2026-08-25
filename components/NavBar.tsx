@@ -8,6 +8,7 @@ import {
   useMotionValueEvent,
 } from "motion/react";
 import { useContext, useState } from "react";
+import BrandMark from "./BrandMark";
 type Props={
   isOpen: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -58,15 +59,16 @@ const NavBar = ({isOpen, setOpen}: Props) => {
       lg:px-16 lg:py-6
       relative">
         {/* Logo */}
-        <h1
+        <button
+        type="button"
+        aria-label="Back to top"
         onClick={(e) =>{
           e.preventDefault();
           scrollToSection("#hero")
         }} 
-        className=" cursor-pointer text-xl lg:text-2xl font-bold tracking-wide">
-          Henry
-          
-        </h1>
+        className="cursor-pointer rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400">
+          <BrandMark />
+        </button>
         {/**hamburger menu */}
         <motion.div
         initial={{opacity:0, y:-50}}

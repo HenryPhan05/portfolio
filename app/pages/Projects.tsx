@@ -1,249 +1,68 @@
 "use client";
 
-import { motion, AnimatePresence, wrap } from "motion/react";
+import { AnimatePresence, motion, wrap } from "motion/react";
 import { useState } from "react";
-
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import ProjectCard from "@/components/ProjectCard";
 import { ProjectLinks } from "../constants";
 
-import { FaRegArrowAltCircleLeft } from "react-icons/fa";
-import { FaRegArrowAltCircleRight } from "react-icons/fa";
-
-const variants = {
-  enter: (direction: number) => ({
-    x: direction > 0 ? 400 : -400,
-    opacity: 0,
-    scale: 0.85,
-  }),
-
-  center: {
-    x: 0,
-    opacity: 1,
-    scale: 1,
-    zIndex: 10,
-  },
-
-  exit: (direction: number) => ({
-    x: direction > 0 ? -400 : 400,
-    opacity: 0,
-    scale: 0.85,
-    zIndex: 0,
-    position: "absolute" as const,
-  }),
+const slideVariants = {
+  enter: (direction: number) => ({ x: direction > 0 ? "42%" : "-42%", opacity: 0, scale: 0.94 }),
+  center: { x: 0, opacity: 1, scale: 1 },
+  exit: (direction: number) => ({ x: direction > 0 ? "-42%" : "42%", opacity: 0, scale: 0.94 }),
 };
+
+const spring = { type: "spring" as const, stiffness: 210, damping: 27, mass: 0.8 };
 
 const Projects = () => {
   const [[page, direction], setPage] = useState<[number, number]>([0, 0]);
-
   const projectIndex = wrap(0, ProjectLinks.length, page);
-
-  const prevProject = wrap(
-    0,
-    ProjectLinks.length,
-    projectIndex - 1
-  );
-
-  const nextProject = wrap(
-    0,
-    ProjectLinks.length,
-    projectIndex + 1
-  );
-
-  const paginate = (newDirection: 1 | -1) => {
-    setPage(([prev]) => [prev + newDirection, newDirection]);
-  };
+  const paginate = (newDirection: 1 | -1) => setPage(([current]) => [current + newDirection, newDirection]);
 
   return (
-    <div
-    id="projects"
-      className="
-      lg:min-h-screen flex flex-col  gap-0 lg:gap-7 
-      px-2 py-3 mt-20
-      xl:px-30 xl:py-10
-      lg:px-24 lg:p-0 lg:mt-0
-      md:px-12 md:py-6
-      sm:px-12 sm:py-4
-    "
-    >
-      <motion.h1
-        initial ={{opacity:0, x:-20}}
-        whileInView={{opacity:1, x:0}}
-        transition={{
-          duration:0.5,
-          ease:"easeOut",
-        }}
-        viewport={{once:true}}
-        className="
-      text-2xl lg:text-4xl font-bold text-purple-300
-    [text-shadow:
-    0_0_20px_rgba(168,85,247,0.8),
-    0_0_10px_rgba(168,85,247,0.7),
-    0_0_20px_rgba(34,211,238,0.6),
-    0_0_40px_rgba(34,211,238,0.5)
-  
-      "
-      >
-        Projects______
-      </motion.h1>
+    <section id="projects" className="flex min-h-screen flex-col justify-center gap-8 overflow-hidden px-4 py-20 sm:px-12 lg:px-24 xl:px-30">
+      <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, ease: "easeOut" }} viewport={{ once: true }} className="flex items-end justify-between gap-4">
+        <div>
+          <h1 className="text-3xl font-bold text-purple-300 [text-shadow:0_0_20px_rgba(168,85,247,0.65),0_0_32px_rgba(34,211,238,0.35)] lg:text-4xl">Projects</h1>
+        </div>
+        <p className="hidden text-sm text-white/45 sm:block">Drag or use the arrows to explore</p>
+      </motion.div>
 
-      <motion.div
-      initial={{opacity:0, y:60}}
-      whileInView={{opacity:1, y:0}}
-      transition={{
-        duration:0.5, 
-        ease:"easeOut",
-      }}
-      viewport={{once: true}}
-        className="
-        relative
-        flex
-        items-center
-        justify-center
-        w-full
-      "
-      >
-        
-        <motion.button
-          whileHover={{
-            x: [-2, 2, -2],
-            transition: {
-              duration: 1,
-              repeat: Infinity,
-            },
-          }}
-          whileTap={{
-            scale: 0.9,
-          }}
-          onClick={() => paginate(-1)}
-          className="
-            absolute
-            left-0
-            z-30
-            text-3xl
-            lg:text-4xl
-            cursor-pointer hover:text-purple-600 active:text-purple-600
-          "
-        >
-          <FaRegArrowAltCircleLeft />
-        </motion.button>
+      <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: "easeOut" }} viewport={{ once: true, amount: 0.2 }} className="relative mx-auto flex w-full max-w-7xl items-center justify-center">
+        <button type="button" onClick={() => paginate(-1)} aria-label="Previous project" className="absolute left-0 z-30 grid size-11 place-items-center rounded-full border border-white/10 bg-black/60 text-white shadow-lg backdrop-blur-md transition hover:border-purple-400/70 hover:bg-purple-500/20 hover:text-purple-200 active:scale-95 sm:left-2 lg:left-6">
+          <FaChevronLeft aria-hidden="true" />
+        </button>
 
-        {/* SLIDER */}
-        <div
-          className="
-          relative
-          w-full
-          max-w-6xl
-          h-150
-          flex
-          items-center
-          justify-center
-          overflow-hidden
-        "
-        >
-          {/* PREV CARD */}
-          <motion.div
-            animate={{
-              x: -350,
-              scale: 0.82,
-              opacity: 0.45,
-            }}
-            transition={{
-              type: "spring",
-              stiffness: 260,
-              damping: 24,
-            }}
-            className="
-              hidden
-              lg:block
-              lg:absolute
-              left-1/2
-              -translate-x-1/2
-              pointer-events-none
-              blur-[1px]
-            "
-          >
-            <ProjectCard {...ProjectLinks[prevProject]} />
-          </motion.div>
+        <div className="relative flex min-h-[590px] w-full items-center justify-center [perspective:1200px] sm:min-h-[620px]">
+          <div className="pointer-events-none absolute right-[calc(50%+250px)] hidden origin-right scale-[0.76] opacity-50 lg:block">
+            <ProjectCard {...ProjectLinks[wrap(0, ProjectLinks.length, projectIndex - 1)]} preview />
+          </div>
 
-          {/* CURRENT CARD */}
-          <AnimatePresence
-            initial={false}
-            custom={direction}
-          >
-            <motion.div
-              key={projectIndex}
-              custom={direction}
-              variants={variants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{
-                type: "spring",
-                stiffness: 260,
-                damping: 24,
-              }}
-              className="absolute 
-              left-1/2 -translate-x-1/2
-              lg:left-1/3 lg:-translate-x-1
-               z-20 lg:scale-100 md:scale-80 scale-70"
-            >
+          <AnimatePresence initial={false} custom={direction} mode="popLayout">
+            <motion.div key={page} custom={direction} variants={slideVariants} initial="enter" animate="center" exit="exit" transition={spring} drag="x" dragConstraints={{ left: 0, right: 0 }} dragElastic={0.12} onDragEnd={(_, info) => {
+              if (info.offset.x < -70 || info.velocity.x < -500) paginate(1);
+              if (info.offset.x > 70 || info.velocity.x > 500) paginate(-1);
+            }} className="absolute z-20 cursor-grab touch-pan-y select-none active:cursor-grabbing [will-change:transform,opacity]">
               <ProjectCard {...ProjectLinks[projectIndex]} />
             </motion.div>
           </AnimatePresence>
 
-          {/* NEXT CARD */}
-          <motion.div
-            animate={{
-              x: 350,
-              scale: 0.82,
-              opacity: 0.45,
-            }}
-            transition={{
-              type: "spring",
-              stiffness: 260,
-              damping: 24,
-            }}
-            className="
-              hidden
-              lg:block
-              absolute
-              left-1/2
-              -translate-x-1/2
-              pointer-events-none
-              blur-[1px]
-            "
-          >
-            <ProjectCard {...ProjectLinks[nextProject]} />
-          </motion.div>
+          <div className="pointer-events-none absolute left-[calc(50%+250px)] hidden origin-left scale-[0.76] opacity-50 lg:block">
+            <ProjectCard {...ProjectLinks[wrap(0, ProjectLinks.length, projectIndex + 1)]} preview />
+          </div>
         </div>
 
-        {/* RIGHT BUTTON */}
-        <motion.button
-          whileHover={{
-            x: [2, -2, 2],
-            transition: {
-              duration: 1,
-              repeat: Infinity,
-            },
-          }}
-          whileTap={{
-            scale: 0.9,
-          }}
-          onClick={() => paginate(1)}
-          className="
-            absolute
-            right-0
-            z-30
-            text-3xl lg:text-4xl
-            text-white 
-            
-            cursor-pointer hover:text-purple-600 active:text-purple-600
-          "
-        >
-          <FaRegArrowAltCircleRight />
-        </motion.button>
+        <button type="button" onClick={() => paginate(1)} aria-label="Next project" className="absolute right-0 z-30 grid size-11 place-items-center rounded-full border border-white/10 bg-black/60 text-white shadow-lg backdrop-blur-md transition hover:border-purple-400/70 hover:bg-purple-500/20 hover:text-purple-200 active:scale-95 sm:right-2 lg:right-6">
+          <FaChevronRight aria-hidden="true" />
+        </button>
       </motion.div>
-    </div>
+
+      <div className="flex justify-center gap-2" aria-label="Project pagination">
+        {ProjectLinks.map((project, index) => (
+          <button key={project.id} type="button" onClick={() => setPage([page + (index - projectIndex), index > projectIndex ? 1 : -1])} aria-label={`View ${project.name}`} aria-current={index === projectIndex ? "true" : undefined} className={`h-1.5 rounded-full transition-all duration-300 ${index === projectIndex ? "w-8 bg-gradient-to-r from-purple-500 to-cyan-400" : "w-1.5 bg-white/25 hover:bg-white/50"}`} />
+        ))}
+      </div>
+    </section>
   );
 };
 

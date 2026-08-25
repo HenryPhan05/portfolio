@@ -7,8 +7,8 @@ Built with a focus on **smooth user experience**, **clean UI**, and **performanc
 
 ## ✨ Overview
 
-This portfolio highlights my work through a combination of **smooth scrolling**, **subtle animations**, and a **responsive layout**.  
-It also includes a fully functional contact form for direct communication.
+This portfolio highlights my work through a combination of **smooth scrolling**, **subtle animations**, and a **responsive layout**. The projects section uses an interactive card carousel with mouse and touch dragging, technology icons, and accessible tooltips.  
+It also includes an animated handwritten brand mark, a matching SVG favicon, and a fully functional contact form for direct communication.
 
 ---
 
@@ -29,13 +29,18 @@ It also includes a fully functional contact form for direct communication.
 - Smooth scrolling experience powered by Lenis  
 - Clean and modern UI with animated interactions  
 - Responsive design across all devices  
+- Smooth project card carousel with spring-based transitions  
+- Mouse and touch drag/swipe navigation for projects  
+- Project technology icons with hover and keyboard tooltips  
+- GitHub, Figma, and live demo links for featured projects  
+- Animated handwritten **H** brand mark and matching SVG favicon  
 - Contact form with validation and real email delivery  
 - Downloadable resume  
 - Scroll-to-top button with animation  
 
 ---
 
-## 📦 libraries & Tools
+## 📦 Libraries & Tools
 
 - motion (Framer Motion)
 - lenis

@@ -17,6 +17,7 @@ import { ProjectProps } from "./type";
   import FitmonkeyImage from "@/public/projectImages/fitMonkey.png"
   import KnowlyImage from "@/public/projectImages/Knowly.png"
   import PortfolioImage from "@/public/projectImages/portfolio.png"
+  import SmartServiceImage from "@/public/projectImages/smartRequestServiceSystem.png"
 export const navLinks : Navigation[] =[
   {
     id:1,
@@ -97,6 +98,7 @@ export const ProjectLinks: ProjectProps[] =[
   {
     id:1,
     name:"Fit Monkey",
+    period:"Mar 2026 - Apr 2026",
     description:"A modern fitness and workout tracking web application",
     tools:[
       "TypeScript",
@@ -130,6 +132,7 @@ export const ProjectLinks: ProjectProps[] =[
   {
     id:2,
     name:"Knowly",
+    period:"Feb 2026 - Mar 2026",
     description: "A cross platform to help users manage their study tasks, track progress and build effective learning habits",
     tools:[
       "TypeScript",
@@ -160,6 +163,7 @@ export const ProjectLinks: ProjectProps[] =[
   {
     id:3,
     name: "Evolvra",
+    period:"Apr 2025 - Aug 2025",
     description: "UI platform that allow users to track personal goals and tasks",
     tools:[
       "Figma",
@@ -177,6 +181,7 @@ export const ProjectLinks: ProjectProps[] =[
   {
     id:4,
     name:"Portfolio",
+    period:"Apr 2026 - Present",
     description: "My Interactive Porfolio Design that showed my projects, skills",
     tools:[
       "TypeScript",
@@ -198,5 +203,36 @@ export const ProjectLinks: ProjectProps[] =[
       }
     ],
     image: PortfolioImage
+  },
+  {
+    id:5,
+    name:"Smart Request Service System",
+    period:"Jun 2026 - Present",
+    description:"A voice-driven service request system with AI routing, safety escalation, and a staff dashboard for tracking requests.",
+    tools:[
+      "Python",
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "Azure Functions",
+      "Azure AI Foundry",
+      "OpenAI",
+      "Raspberry Pi",
+      "Vosk",
+      "Piper",
+    ],
+    icons:[
+      {
+        nameIcon:"Github",
+        icon:FiGithub,
+        link:"https://github.com/JianningLi-Richard/SmartService",
+      },
+      {
+        nameIcon:"Video Demo",
+        icon:FaRegPlayCircle,
+        link:"https://youtu.be/kmFCONPQAVM",
+      },
+    ],
+    image:SmartServiceImage,
   }
 ]

@@ -31,6 +31,7 @@ export type ProjectProps={
   id: number,
   name: string,
   description: string,
+  period?: string,
   tools: Array<string>,
   icons : ProjectIcons[] | ProjectIcons;
   image: StaticImageData,

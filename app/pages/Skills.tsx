@@ -1,4 +1,6 @@
   import { HTMLMotionProps, motion,} from "motion/react";
+  import Image from "next/image";
+  import type { IconType } from "react-icons";
   import CssIcon from "@/components/icons/Css";
   import HtmlIcon from "@/components/icons/Html";
   import JavaScriptIcon from "@/components/icons/JavaScript";
@@ -19,9 +21,45 @@
   import SupabaseIcon from "@/components/icons/Supabase";
   import TypeScriptIcon from "@/components/icons/TypeScript";
   import VercelIcon from "@/components/icons/Vercel";
+  import { SiDocker, SiPostman, SiExpress, SiRaspberrypi, SiHuggingface } from "react-icons/si";
+  import { VscAzure } from "react-icons/vsc";
+  import { TbBrain } from "react-icons/tb";
+
+  const additionalSkills: { name: string; icon?: IconType; color?: string; image?: string }[] = [
+    { name: "Docker", icon: SiDocker, color: "#2496ED" },
+    { name: "Azure", icon: VscAzure, color: "#38BDF8" },
+    { name: "Azure AI Foundry", icon: TbBrain, color: "#C084FC" },
+    { name: "Raspberry Pi", icon: SiRaspberrypi, color: "#E74675" },
+    { name: "Postman", icon: SiPostman, color: "#FF6C37" },
+    { name: "Express.js", icon: SiExpress, color: "#E5E7EB" },
+    { name: "Piper", image: "/skillIcons/piper.svg" },
+    { name: "Vosk", image: "/skillIcons/vosk.png" },
+    { name: "Hugging Face", icon: SiHuggingface, color: "#FFD21E" },
+  ];
 
   const Skills =() =>{
-    const icons = [HtmlIcon,CssIcon, JavaScriptIcon, TypeScriptIcon, TailwindIcon, FigmaIcon,NextjsIcon, NodejsIcon, FirebaseIcon, SupabaseIcon, FramerMotionIcon, ReactIcon, GitHubIcon, GitIcon, JavaIcon, MysqlIcon, NpmIcon, OracleIcon, PythonIcon, VercelIcon];
+    const icons = [
+      { name: "HTML", icon: HtmlIcon },
+      { name: "CSS", icon: CssIcon },
+      { name: "JavaScript", icon: JavaScriptIcon },
+      { name: "TypeScript", icon: TypeScriptIcon },
+      { name: "Tailwind CSS", icon: TailwindIcon },
+      { name: "Figma", icon: FigmaIcon },
+      { name: "Next.js", icon: NextjsIcon },
+      { name: "Node.js", icon: NodejsIcon },
+      { name: "Firebase", icon: FirebaseIcon },
+      { name: "Supabase", icon: SupabaseIcon },
+      { name: "Motion", icon: FramerMotionIcon },
+      { name: "React", icon: ReactIcon },
+      { name: "GitHub", icon: GitHubIcon },
+      { name: "Git", icon: GitIcon },
+      { name: "Java", icon: JavaIcon },
+      { name: "MySQL", icon: MysqlIcon },
+      { name: "npm", icon: NpmIcon },
+      { name: "Oracle", icon: OracleIcon },
+      { name: "Python", icon: PythonIcon },
+      { name: "Vercel", icon: VercelIcon },
+    ];
     //animation Icons
     const slideX: HTMLMotionProps<"div"> ={
        animate:{
@@ -116,20 +154,38 @@
             md:grid-cols-5
             lg:grid-cols-6 
             bg-linear-to-br from-purple-600/10 to-purple-600/20
-            gap-x-10 gap-y-15
+            gap-x-4 gap-y-15 sm:gap-x-10
             place-items-center
         "
         >
-        {icons.map((Icon, index) => {
+        {icons.map(({ name, icon: Icon }, index) => {
           const animationIcon = animations[index % animations.length];
         return (
-          <motion.div 
-          key={index} 
-           {...animationIcon}>
-            <Icon className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
-          </motion.div>
+          <div key={name} className="flex w-full min-w-0 flex-col items-center gap-3 self-start text-center" title={name}>
+            <motion.div {...animationIcon} aria-hidden="true">
+              <Icon className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
+            </motion.div>
+            <span className="text-xs leading-4 font-medium text-purple-100/80 sm:text-sm">{name}</span>
+          </div>
         );
       })}
+        {additionalSkills.map(({ name, icon: Icon, color, image }, index) => (
+          <div key={name} className="flex w-full min-w-0 flex-col items-center gap-3 self-start text-center" title={name}>
+            <motion.div {...animations[(icons.length + index) % animations.length]}>
+              {image ? (
+                <Image src={image} alt="" width={80} height={48} unoptimized
+                  className={`h-8 w-16 object-contain md:h-10 md:w-20 lg:h-12 ${name === "Piper" ? "invert" : ""}`} />
+              ) : Icon ? <Icon
+                className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12"
+                style={{ color }}
+                aria-hidden="true"
+              /> : null}
+            </motion.div>
+            <span className="text-xs leading-4 font-medium text-purple-100/80 sm:text-sm">
+              {name}
+            </span>
+          </div>
+        ))}
       </motion.div>
         </motion.div>
     )

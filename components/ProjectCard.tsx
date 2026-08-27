@@ -3,10 +3,17 @@ import { ProjectProps } from "@/app/constants/type";
 import { FaCss3Alt, FaFigma, FaFire, FaReact } from "react-icons/fa";
 import { RiNextjsFill, RiTeamFill, RiTailwindCssFill } from "react-icons/ri";
 import { SiExpo, SiFramer, SiSupabase, SiTypescript, SiZod } from "react-icons/si";
+import { SiPython, SiJavascript, SiHtml5, SiRaspberrypi, SiOpenai } from "react-icons/si";
+import { VscAzure } from "react-icons/vsc";
+import { TbCloudComputing, TbMicrophone, TbVolume, TbCalendar } from "react-icons/tb";
 import { TbApi, TbBulb, TbDeviceMobileCode } from "react-icons/tb";
 import { IconType } from "react-icons";
 
 const toolIcons: Record<string, IconType> = {
+  OpenAI: SiOpenai,
+  "Raspberry Pi": SiRaspberrypi, Vosk: TbMicrophone, Piper: TbVolume,
+  Python: SiPython, JavaScript: SiJavascript, HTML5: SiHtml5, CSS3: FaCss3Alt,
+  "Azure Functions": TbCloudComputing, "Azure AI Foundry": VscAzure,
   TypeScript: SiTypescript, React: FaReact, "React Native": TbDeviceMobileCode,
   Tailwind: RiTailwindCssFill, "Next.js": RiNextjsFill, Supabase: SiSupabase,
   Firebase: FaFire, Expo: SiExpo, Zod: SiZod, Figma: FaFigma, TeamWork: RiTeamFill,
@@ -16,7 +23,7 @@ const toolIcons: Record<string, IconType> = {
 
 type ProjectCardProps = ProjectProps & { preview?: boolean };
 
-const ProjectCard = ({ image, name, description, tools, icons, preview = false }: ProjectCardProps) => {
+const ProjectCard = ({ image, name, description, tools, icons, period, preview = false }: ProjectCardProps) => {
   const iconList = Array.isArray(icons) ? icons : [icons];
 
   return (
@@ -45,6 +52,13 @@ const ProjectCard = ({ image, name, description, tools, icons, preview = false }
             );
           })}
         </div>
+
+        {period && (
+          <p className="mt-4 mb-5 flex items-center gap-2 text-xs font-medium tracking-wide text-white/55" aria-label={`Project duration: ${period}`}>
+            <TbCalendar className="shrink-0 text-base text-purple-300/80" aria-hidden="true" />
+            {period}
+          </p>
+        )}
 
         <div className="mt-auto flex items-center gap-3 border-t border-white/[0.08] pt-5">
           {iconList.map((item) => {

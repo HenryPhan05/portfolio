@@ -52,7 +52,7 @@ import { useContext } from "react";
           >
         <TypeAnimation
         sequence={[
-          'Frontend Developer Intern',
+          'Full Stack Engineer',
           500,
           'Learning Something new',
           500,
